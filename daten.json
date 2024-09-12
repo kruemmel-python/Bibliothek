@@ -1,0 +1,17 @@
+{
+  "benutzer": [
+    {
+      "name": "Ralf",
+      "id": 1
+    }
+  ],
+  "buecher": [
+    {
+      "titel": "c++",
+      "autor": "RK",
+      "id": 1,
+      "istVerliehen": true,
+      "verliehenAn": 1
+    }
+  ]
+}
