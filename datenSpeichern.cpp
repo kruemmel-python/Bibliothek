@@ -21,7 +21,7 @@ void datenSpeichern(const std::vector<Buch>& buecher, const std::vector<Benutzer
 
     for (size_t i = 0; i < buecher.size(); ++i) {
         if (buecher[i].titel.empty() || buecher[i].autor.empty()) {
-            std::cerr << "Fehler: Buchdaten unvollständig (Titel oder Autor fehlt).\n";
+            std::cerr << "Fehler: Buchdaten unvollstaendig (Titel oder Autor fehlt).\n";
             continue;
         }
         datei << "    {\n      \"titel\": \"" << buecher[i].titel << "\",\n";

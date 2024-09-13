@@ -28,14 +28,14 @@ void buchVerleihProzess(std::vector<Buch>& buchSammlung, std::vector<Benutzer>& 
     }
 }
 
-// Funktion zum Zurückgeben eines Buches
+// Funktion zum Zurueckgeben eines Buches
 void buchRueckgabeProzess(std::vector<Buch>& buchSammlung, int buchId) {
     bool gefunden = false;
 
     for (auto& buch : buchSammlung) {
         if (buch.id == buchId) {
             if (buch.istVerliehen) {
-                buchZurueckgeben(buch);  // Ruft die Rückgabefunktion auf
+                buchZurueckgeben(buch);  // Ruft die Rueckgabefunktion auf
                 gefunden = true;
             }
             else {

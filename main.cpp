@@ -8,11 +8,11 @@
 
 void menue() {
     std::cout << "------ Buch- und Benutzerverwaltungsprogramm ------\n";
-    std::cout << "1. Buch hinzufügen\n";
+    std::cout << "1. Buch hinzufuegen\n";
     std::cout << "2. Buch verleihen\n";
-    std::cout << "3. Buch zurückgeben\n";
-    std::cout << "4. Alle Bücher anzeigen\n";
-    std::cout << "5. Benutzer hinzufügen\n";
+    std::cout << "3. Buch zurueckgeben\n";
+    std::cout << "4. Alle Buecher anzeigen\n";
+    std::cout << "5. Benutzer hinzufuegen\n";
     std::cout << "6. Alle Benutzer anzeigen\n";
     std::cout << "7. Daten speichern\n";
     std::cout << "8. Daten laden\n";
@@ -37,13 +37,13 @@ int main() {
 
     while (laufend) {
         menue();
-        std::cout << "Bitte wählen Sie eine Option: ";
+        std::cout << "Bitte waehlen Sie eine Option: ";
         std::cin >> auswahl;
         std::cin.ignore();  // Zum Entfernen des '\n' aus dem Eingabepuffer nach der Zahl
 
         switch (auswahl) {
         case 1: {
-            // Buch hinzufügen
+            // Buch hinzufuegen
             std::string titel, autor;
             int id;
             std::cout << "Titel: ";
@@ -67,17 +67,17 @@ int main() {
             break;
         }
         case 3: {
-            // Buch zurückgeben
+            // Buch zurueckgeben
             int buchId;
-            std::cout << "Geben Sie die ID des zurückzugebenden Buches ein: ";
+            std::cout << "Geben Sie die ID des zurueckzugebenden Buches ein: ";
             std::cin >> buchId;
             buchRueckgabeProzess(buchSammlung, buchId);
             break;
         }
         case 4: {
-            // Alle Bücher anzeigen
+            // Alle Buecher anzeigen
             if (buchSammlung.empty()) {
-                std::cout << "Es gibt keine Bücher in der Sammlung.\n";
+                std::cout << "Es gibt keine Buecher in der Sammlung.\n";
             }
             else {
                 for (const auto& buch : buchSammlung) {
@@ -88,7 +88,7 @@ int main() {
             break;
         }
         case 5: {
-            // Neuen Benutzer hinzufügen
+            // Neuen Benutzer hinzufuegen
             std::string name;
             int id;
             std::cout << "Benutzername: ";
@@ -98,7 +98,7 @@ int main() {
             std::cin.ignore();  // Zum Entfernen des '\n' nach der Eingabe der ID
             Benutzer neuerBenutzer(name, id);
             benutzerSammlung.push_back(neuerBenutzer);
-            std::cout << "Benutzer '" << name << "' wurde hinzugefügt.\n";
+            std::cout << "Benutzer '" << name << "' wurde hinzugefuegt.\n";
             break;
         }
         case 6: {
@@ -133,7 +133,7 @@ int main() {
             break;
         }
         default:
-            std::cout << "Ungültige Auswahl! Bitte wählen Sie eine gültige Option.\n";
+            std::cout << "Ungueltige Auswahl! Bitte waehlen Sie eine gueltige Option.\n";
         }
     }
 

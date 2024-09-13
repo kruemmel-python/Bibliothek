@@ -9,5 +9,5 @@ struct Benutzer {
     Benutzer(const std::string& name, int id) : name(name), id(id) {}
 };
 
-// Funktionsdeklarationen für Benutzer
+// Funktionsdeklarationen fuer Benutzer
 void benutzerAnzeigen(const Benutzer& benutzer);

@@ -3,7 +3,7 @@
 #include <vector>
 #include "benutzer.hpp"
 
-// Struktur zur Repräsentation eines Buches
+// Struktur zur Repraesentation eines Buches
 struct Buch {
     std::string titel;
     std::string autor;
@@ -17,6 +17,6 @@ struct Buch {
 // Funktionsdeklarationen
 void buchBeschreiben(Buch& buch, const std::string& titel, const std::string& autor, int id);
 void buchAnzeigen(const Buch& buch);
-void buchVerleihen(Buch& buch, const Benutzer& benutzer);  // Funktionsdeklaration für das Verleihen eines Buches
+void buchVerleihen(Buch& buch, const Benutzer& benutzer);  // Funktionsdeklaration fuer das Verleihen eines Buches
 void buchZurueckgeben(Buch& buch);
 void buchHinzufuegen(std::vector<Buch>& sammlung, const std::string& titel, const std::string& autor, int id);
