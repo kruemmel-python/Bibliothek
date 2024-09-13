@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-// Struktur zur Repräsentation eines Benutzers
 struct Benutzer {
     std::string name;
     const int id;  // ID des Benutzers

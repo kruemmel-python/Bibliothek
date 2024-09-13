@@ -131,13 +131,17 @@
   <ItemGroup>
     <ClCompile Include="benutzer.cpp" />
     <ClCompile Include="buch.cpp" />
+    <ClCompile Include="datenLaden.cpp" />
+    <ClCompile Include="datenSpeichern.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="verleih.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="benutzer.hpp" />
     <ClInclude Include="buch.hpp" />
     <ClInclude Include="datenLaden.hpp" />
     <ClInclude Include="datenSpeichern.hpp" />
+    <ClInclude Include="verleih.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="daten.json" />

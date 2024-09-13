@@ -1,4 +1,10 @@
-﻿  main.cpp
+﻿  benutzer.cpp
+  buch.cpp
+  datenLaden.cpp
+  datenSpeichern.cpp
+  main.cpp
+  verleih.cpp
+  Code wird generiert...
   Aufgaben12092024.vcxproj -> C:\Users\ralfk\Documents\c++ Lerninhalte\Aufgaben12092024\x64\Debug\Aufgaben12092024.exe
   Der Befehl "pwsh.exe" ist entweder falsch geschrieben oder
   konnte nicht gefunden werden.

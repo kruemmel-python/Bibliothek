@@ -1,15 +1,22 @@
 {
   "benutzer": [
     {
-      "name": "Ralf",
+      "name": "BERND",
       "id": 1
     }
   ],
   "buecher": [
     {
-      "titel": "c++",
-      "autor": "RK",
+      "titel": "NANUNANA",
+      "autor": "NUNUNU",
       "id": 1,
+      "istVerliehen": false,
+      "verliehenAn": null
+    },
+    {
+      "titel": "bibibi",
+      "autor": "BoB",
+      "id": 2,
       "istVerliehen": true,
       "verliehenAn": 1
     }

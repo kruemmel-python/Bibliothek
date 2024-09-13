@@ -24,6 +24,15 @@
     <ClCompile Include="benutzer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="verleih.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="datenLaden.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="datenSpeichern.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="benutzer.hpp">
@@ -35,8 +44,11 @@
     <ClInclude Include="datenLaden.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="verleih.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
     <ClInclude Include="buch.hpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

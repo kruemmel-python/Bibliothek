@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
 #include <string>
+#include <vector>
 #include "benutzer.hpp"
 
 // Struktur zur Repräsentation eines Buches
@@ -11,12 +11,12 @@ struct Buch {
     bool istVerliehen;
     const Benutzer* verliehenAn;
 
-    Buch() : istVerliehen(false), verliehenAn(nullptr) {}
+    Buch() : id(0), istVerliehen(false), verliehenAn(nullptr) {}
 };
 
 // Funktionsdeklarationen
 void buchBeschreiben(Buch& buch, const std::string& titel, const std::string& autor, int id);
 void buchAnzeigen(const Buch& buch);
-void buchVerleihen(Buch& buch, const Benutzer& benutzer);
+void buchVerleihen(Buch& buch, const Benutzer& benutzer);  // Funktionsdeklaration für das Verleihen eines Buches
 void buchZurueckgeben(Buch& buch);
 void buchHinzufuegen(std::vector<Buch>& sammlung, const std::string& titel, const std::string& autor, int id);

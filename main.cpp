@@ -1,9 +1,10 @@
-#include <iostream>
-#include <vector>
 #include "buch.hpp"
 #include "benutzer.hpp"
-#include "datenSpeichern.hpp"
 #include "datenLaden.hpp"
+#include "datenSpeichern.hpp"
+#include "verleih.hpp"
+#include <iostream>
+#include <vector>
 
 void menue() {
     std::cout << "------ Buch- und Benutzerverwaltungsprogramm ------\n";
@@ -23,6 +24,14 @@ int main() {
     std::vector<Buch> buchSammlung;
     std::vector<Benutzer> benutzerSammlung;
 
+    // Stelle sicher, dass die Sammlungen beim Programmstart leer sind
+    buchSammlung.clear();
+    benutzerSammlung.clear();
+
+    // Daten automatisch beim Start des Programms laden
+    datenLaden(buchSammlung, benutzerSammlung);
+    std::cout << "Daten wurden beim Programmstart geladen.\n";
+
     int auswahl;
     bool laufend = true;
 
@@ -34,6 +43,7 @@ int main() {
 
         switch (auswahl) {
         case 1: {
+            // Buch hinzufügen
             std::string titel, autor;
             int id;
             std::cout << "Titel: ";
@@ -47,111 +57,77 @@ int main() {
             break;
         }
         case 2: {
-            if (buchSammlung.empty()) {
-                std::cout << "Es gibt keine Bücher, die verliehen werden können.\n";
-            }
-            else if (benutzerSammlung.empty()) {
-                std::cout << "Es gibt keine Benutzer, die das Buch ausleihen können.\n";
-            }
-            else {
-                int buchId, benutzerId;
-                std::cout << "Geben Sie die ID des zu verleihenden Buches ein: ";
-                std::cin >> buchId;
-                std::cout << "Geben Sie die ID des Benutzers ein: ";
-                std::cin >> benutzerId;
-                std::cin.ignore();
-                bool buchGefunden = false;
-                bool benutzerGefunden = false;
-                for (auto& buch : buchSammlung) {
-                    if (buch.id == buchId) {
-                        buchGefunden = true;
-                        for (const auto& benutzer : benutzerSammlung) {
-                            if (benutzer.id == benutzerId) {
-                                benutzerGefunden = true;
-                                buchVerleihen(buch, benutzer);
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                if (!buchGefunden) {
-                    std::cout << "Buch mit ID " << buchId << " wurde nicht gefunden.\n";
-                }
-                if (!benutzerGefunden) {
-                    std::cout << "Benutzer mit ID " << benutzerId << " wurde nicht gefunden.\n";
-                }
-            }
+            // Buch verleihen
+            int buchId, benutzerId;
+            std::cout << "Geben Sie die ID des zu verleihenden Buches ein: ";
+            std::cin >> buchId;
+            std::cout << "Geben Sie die ID des Benutzers ein: ";
+            std::cin >> benutzerId;
+            buchVerleihProzess(buchSammlung, benutzerSammlung, buchId, benutzerId);
             break;
         }
         case 3: {
-            if (buchSammlung.empty()) {
-                std::cout << "Es gibt keine Bücher, die zurückgegeben werden können.\n";
-            }
-            else {
-                int buchId;
-                std::cout << "Geben Sie die ID des zurückzugebenden Buches ein: ";
-                std::cin >> buchId;
-                std::cin.ignore();
-                bool gefunden = false;
-                for (auto& buch : buchSammlung) {
-                    if (buch.id == buchId) {
-                        buchZurueckgeben(buch);
-                        gefunden = true;
-                        break;
-                    }
-                }
-                if (!gefunden) {
-                    std::cout << "Buch mit ID " << buchId << " wurde nicht gefunden.\n";
-                }
-            }
+            // Buch zurückgeben
+            int buchId;
+            std::cout << "Geben Sie die ID des zurückzugebenden Buches ein: ";
+            std::cin >> buchId;
+            buchRueckgabeProzess(buchSammlung, buchId);
             break;
         }
         case 4: {
+            // Alle Bücher anzeigen
             if (buchSammlung.empty()) {
                 std::cout << "Es gibt keine Bücher in der Sammlung.\n";
             }
             else {
                 for (const auto& buch : buchSammlung) {
                     buchAnzeigen(buch);
+                    std::cout << "---------------------\n";
                 }
             }
             break;
         }
         case 5: {
+            // Neuen Benutzer hinzufügen
             std::string name;
             int id;
             std::cout << "Benutzername: ";
             std::getline(std::cin, name);
             std::cout << "ID: ";
             std::cin >> id;
-            std::cin.ignore();  // Puffer leeren
-
+            std::cin.ignore();  // Zum Entfernen des '\n' nach der Eingabe der ID
             Benutzer neuerBenutzer(name, id);
             benutzerSammlung.push_back(neuerBenutzer);
-            std::cout << "Benutzer '" << name << "' mit ID " << id << " hinzugefügt.\n";
+            std::cout << "Benutzer '" << name << "' wurde hinzugefügt.\n";
             break;
         }
         case 6: {
+            // Alle Benutzer anzeigen
             if (benutzerSammlung.empty()) {
-                std::cout << "Es gibt keine Benutzer in der Sammlung.\n";
+                std::cout << "Es gibt keine Benutzer.\n";
             }
             else {
                 for (const auto& benutzer : benutzerSammlung) {
                     benutzerAnzeigen(benutzer);
+                    std::cout << "---------------------\n";
                 }
             }
             break;
         }
         case 7: {
+            // Daten speichern
             datenSpeichern(buchSammlung, benutzerSammlung);
+            std::cout << "Daten wurden gespeichert.\n";
             break;
         }
         case 8: {
+            // Daten laden
             datenLaden(buchSammlung, benutzerSammlung);
+            std::cout << "Daten wurden geladen.\n";
             break;
         }
         case 9: {
+            // Programm beenden
             laufend = false;
             std::cout << "Programm beendet.\n";
             break;
