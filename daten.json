@@ -17,8 +17,8 @@
       "titel": "bibibi",
       "autor": "BoB",
       "id": 2,
-      "istVerliehen": true,
-      "verliehenAn": 1
+      "istVerliehen": false,
+      "verliehenAn": null
     }
   ]
 }
